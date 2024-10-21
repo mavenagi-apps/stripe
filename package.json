@@ -12,7 +12,8 @@
     "react": "^18",
     "react-dom": "^18",
     "next": "14.2.5",
-    "mavenagi": "0.0.0-alpha.22"
+    "mavenagi": "0.0.0-alpha.22",
+    "stripe": "latest"
   },
   "devDependencies": {
     "typescript": "^5",

@@ -1,4 +1,7 @@
 declare global {
-  interface AppSettings {}
+  interface AppSettings {
+    apiKey: string
+  }
 }
+
 export {};
