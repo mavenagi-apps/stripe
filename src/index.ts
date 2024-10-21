@@ -62,14 +62,18 @@ export default {
       const customer = customers.data[i];
 
       if (customer.email) {
-        await mavenAgi.users.createOrUpdate({
-          userId: { referenceId: customer.id },
-          identifiers: [{ type: 'EMAIL', value: customer.email }],
-          data: {
-            name: { value: customer.name || '', visibility: 'VISIBLE' },
-            stripeId: { value: customer.id, visibility: 'PARTIALLY_VISIBLE' },
-          },
-        });
+        try {
+          await mavenAgi.users.createOrUpdate({
+            userId: { referenceId: customer.id },
+            identifiers: [{ type: 'EMAIL', value: customer.email }],
+            data: {
+              name: { value: customer.name || '', visibility: 'VISIBLE' },
+              stripeId: { value: customer.id, visibility: 'PARTIALLY_VISIBLE' },
+            },
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   },
