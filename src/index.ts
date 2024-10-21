@@ -38,7 +38,7 @@ export default {
     );
 
     // Stripe actions
-    mavenAgi.actions.createOrUpdate({
+    await mavenAgi.actions.createOrUpdate({
       actionId: { referenceId: 'get-balance' },
       name: 'Get Stripe Balance',
       description: 'Gets the users Stripe balance',
@@ -46,7 +46,7 @@ export default {
       userFormParameters: [],
     });
 
-    mavenAgi.actions.createOrUpdate({
+    await mavenAgi.actions.createOrUpdate({
       actionId: { referenceId: 'get-all-charges' },
       name: 'Get Stripe Charges',
       description: 'Gets all of the users Stripe charges',
@@ -56,12 +56,13 @@ export default {
 
     // Stripe users
     // Limit to one page during debugging
-    const customers = await stripe.customers.list();
+    const customers = await stripe.customers.list({ limit: 3 });
+    console.log('adding ' + customers.data.length + ' users from stripe');
     for (let i = 0; i < customers.data.length; i++) {
       const customer = customers.data[i];
 
       if (customer.email) {
-        mavenAgi.users.createOrUpdate({
+        await mavenAgi.users.createOrUpdate({
           userId: { referenceId: customer.id },
           identifiers: [{ type: 'EMAIL', value: customer.email }],
           data: {
@@ -94,7 +95,7 @@ export default {
     );
     const stripeCustomerId =
       user.allUserData?.stripe?.stripeId ||
-      'cus_NffrFeUfNV2Hib'; /* stripe test customer id */
+      'cus_R4dnq4Cifq7N2D'; /* stripe test customer id */
 
     if (actionId === 'get-all-charges') {
       return JSON.stringify(
