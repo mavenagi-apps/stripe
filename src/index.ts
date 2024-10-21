@@ -92,8 +92,9 @@ export default {
       settings.apiKey ||
         'sk_test_4eC39HqLyjWDarjtT1zdp7dc' /* stripe test key */
     );
-    // TODO: Get from user object
-    const stripeCustomerId = 'cus_NffrFeUfNV2Hib'; /* stripe test customer id */
+    const stripeCustomerId =
+      user.allUserData?.stripe?.stripeId ||
+      'cus_NffrFeUfNV2Hib'; /* stripe test customer id */
 
     if (actionId === 'get-all-charges') {
       return JSON.stringify(
