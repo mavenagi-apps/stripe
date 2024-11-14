@@ -5,6 +5,13 @@ This user data is then used by two actions made with the [actions API](https://d
 
 This app is not yet production ready as it does not pull in all customer data at this time. To support this amount of data at scale we need to use an async workflow of some kind. The current plan is to integrate with inngest, it's on the todo list! Ping us on [Discord](https://discord.mavenagi.com) with questions!
 
+## Example answer
+
+Inside playground you can pass in user data to test the `executeAction`. This is using the test customer id: 
+
+<img width="1053" alt="Screenshot 2024-11-13 at 5 27 26 PM" src="https://github.com/user-attachments/assets/586d5985-f4a4-45dd-bc90-f32865c03729">
+
+
 ## Learn More
 
 To learn more about Maven, check out our [documentation](http://developers.mavenagi.com).
