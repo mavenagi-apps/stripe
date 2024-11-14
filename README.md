@@ -1,14 +1,9 @@
-This is a Maven App which uses [Next.js](https://nextjs.org/) bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Maven App which integrates with the [Stripe API](https://docs.stripe.com/api/balance).
 
-## Getting Started
+It pulls in a limited amount of Stripe customer data into the Maven [user API](https://developers.mavenagi.com/docs/api-reference/api-reference/users).
+This user data is then used by two actions made with the [actions API](https://developers.mavenagi.com/docs/api-reference/api-reference/actions).
 
-Every time code is deployed either via the App Studio or by commiting to this repo, the Maven App will be updated and available at your app url:
-
-`https://<appId>.onmaven.app`
-
-You can start editing the page by modifying `app/route.ts`.
-
-To edit Maven App hooks modify `src/index.ts`.
+This app is not yet production ready as it does not pull in all customer data at this time. To support this amount of data at scale we need to use an async workflow of some kind. The current plan is to integrate with inngest, it's on the todo list! Ping us on [Discord](https://discord.mavenagi.com) with questions!
 
 ## Learn More
 
