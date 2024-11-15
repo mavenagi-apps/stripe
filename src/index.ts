@@ -113,7 +113,8 @@ export default {
     const stripe = new Stripe(settings.apiKey || STRIPE_TEST_KEY);
 
     // Because our actions have preconditions requiring the stripeId to exist, this field will always be present
-    const stripeCustomerId = user.defaultUserData.stripeId;
+    const stripeCustomerId =
+      user.defaultUserData?.stripeId || STRIPE_TEST_CUSTOMER_ID;
 
     if (actionId === 'get-all-charges') {
       return JSON.stringify(
