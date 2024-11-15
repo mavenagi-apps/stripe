@@ -47,10 +47,10 @@ export default {
       description: 'Gets the users Stripe balance',
       userInteractionRequired: false,
       userFormParameters: [],
-      precondition: {
+      /*precondition: {
         preconditionType: 'user',
         key: 'stripeId',
-      },
+      }, */
     });
 
     await mavenAgi.actions.createOrUpdate({
@@ -59,10 +59,10 @@ export default {
       description: 'Gets all of the users Stripe charges',
       userInteractionRequired: false,
       userFormParameters: [],
-      precondition: {
+      /*precondition: {
         preconditionType: 'user',
         key: 'stripeId',
-      },
+      },*/
     });
 
     // Stripe users
