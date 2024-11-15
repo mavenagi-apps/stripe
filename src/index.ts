@@ -47,10 +47,10 @@ export default {
       description: 'Gets the users Stripe balance',
       userInteractionRequired: false,
       userFormParameters: [],
-      /*precondition: {
+      precondition: {
         preconditionType: 'user',
         key: 'stripeId',
-      }, */
+      },
     });
 
     await mavenAgi.actions.createOrUpdate({
@@ -59,10 +59,10 @@ export default {
       description: 'Gets all of the users Stripe charges',
       userInteractionRequired: false,
       userFormParameters: [],
-      /*precondition: {
+      precondition: {
         preconditionType: 'user',
         key: 'stripeId',
-      },*/
+      },
     });
 
     // Stripe users
@@ -113,8 +113,7 @@ export default {
     const stripe = new Stripe(settings.apiKey || STRIPE_TEST_KEY);
 
     // Because our actions have preconditions requiring the stripeId to exist, this field will always be present
-    const stripeCustomerId =
-      user.defaultUserData?.stripeId || STRIPE_TEST_CUSTOMER_ID;
+    const stripeCustomerId = user.defaultUserData.stripeId;
 
     if (actionId === 'get-all-charges') {
       return JSON.stringify(
